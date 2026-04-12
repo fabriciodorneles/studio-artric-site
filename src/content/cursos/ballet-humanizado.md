@@ -8,7 +8,7 @@ diasSemana: ["Quarta", "Sábado"]
 horario: "Quarta 17h00 – 17h50 / Sábado 09h00 – 09h50"
 vagas: 12
 imagemUrl: /images/criancas-aula.jpg
-destaque: false
+destaque: true
 ativo: true
 ordem: 4
 ---

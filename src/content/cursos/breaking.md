@@ -1,5 +1,5 @@
 ---
-titulo: Breaking
+titulo: Break Dance para Crianças
 descricao: Mergulhe na cultura hip hop com o professor Lúcio Pedra — referência no breaking do Rio de Janeiro. Aulas para crianças, jovens e adultos com técnica, flow, força e consciência corporal.
 categoria: dança
 nivel: todos os níveis
@@ -9,7 +9,7 @@ horario: "10h00 – 11h00"
 professor: Lúcio Pedra
 vagas: 15
 imagemUrl: /images/criancas-breaking.jpg
-destaque: true
+destaque: false
 ativo: true
 ordem: 3
 ---
