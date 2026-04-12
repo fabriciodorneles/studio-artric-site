@@ -12,6 +12,7 @@ const cursos = defineCollection({
     diasSemana: z.array(z.string()),
     horario: z.string(),
     professor: z.string().optional(),
+    imagemUrl: z.string().optional(),
     vagas: z.number().optional(),
     preco: z.string().optional(),
     destaque: z.boolean().default(false),

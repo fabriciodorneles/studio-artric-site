@@ -8,6 +8,7 @@ diasSemana: ["Segunda", "Quinta"]
 horario: "19h30 - 21h00"
 professor: Danilo Gomes
 vagas: 12
+imagemUrl: /images/danilo-gomes.jpg
 destaque: false
 ativo: true
 ordem: 5

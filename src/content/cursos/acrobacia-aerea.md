@@ -8,6 +8,7 @@ diasSemana: ["Terça", "Quinta"]
 horario: "19h00 - 20h30"
 professor: Danilo Gomes
 vagas: 10
+imagemUrl: /images/aerea-1.jpg
 destaque: true
 ativo: true
 ordem: 1

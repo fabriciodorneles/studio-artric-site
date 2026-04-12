@@ -75,26 +75,14 @@ import CTA from '../components/sections/CTA.astro';
           </ul>
         </div>
 
-        <!-- Visual placeholder -->
-        <div
-          class="rounded-2xl bg-[var(--color-velvet-light)] aspect-square flex items-center justify-center"
-        >
-          <div class="text-center p-8">
-            <div
-              class="w-20 h-20 rounded-full border-4 border-[var(--color-gold)]/30 mx-auto mb-4 flex items-center justify-center"
-            >
-              <svg
-                class="w-10 h-10 text-[var(--color-gold)]/40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-white/30 text-sm italic">Fotos do espaço em breve</p>
-          </div>
+        <!-- Foto do espaço -->
+        <div class="rounded-2xl overflow-hidden aspect-square">
+          <img
+            src="/images/hero-bg.jpg"
+            alt="Aula de acrobacia aérea no Studio ARTRIC"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -104,25 +92,14 @@ import CTA from '../components/sections/CTA.astro';
   <section class="py-20 sm:py-28 bg-[var(--color-velvet)] text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Visual placeholder -->
-        <div class="rounded-2xl bg-[var(--color-velvet-light)] aspect-[4/5] flex items-center justify-center">
-          <div class="text-center p-8">
-            <div
-              class="w-20 h-20 rounded-full border-4 border-[var(--color-gold)]/30 mx-auto mb-4 flex items-center justify-center"
-            >
-              <svg
-                class="w-10 h-10 text-[var(--color-gold)]/40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-white/30 text-sm italic">Foto da Pati em breve</p>
-          </div>
+        <!-- Foto aérea -->
+        <div class="rounded-2xl overflow-hidden aspect-[4/5]">
+          <img
+            src="/images/aerea-tecido.jpg"
+            alt="Acrobacia aérea no Studio ARTRIC"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
         </div>
 
         <div>
@@ -169,19 +146,13 @@ import CTA from '../components/sections/CTA.astro';
         <article
           class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
         >
-          <div
-            class="w-16 h-16 rounded-full bg-[var(--color-velvet-light)] flex items-center justify-center mb-5"
-          >
-            <svg
-              class="w-8 h-8 text-[var(--color-gold)]/60"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-              ></path>
-            </svg>
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-5">
+            <img
+              src="/images/danilo-gomes.jpg"
+              alt="Danilo Gomes — professor de circo e teatro"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
           </div>
           <h3 class="font-display font-bold text-[var(--color-velvet)] text-2xl mb-1">
             Danilo Gomes
@@ -209,19 +180,13 @@ import CTA from '../components/sections/CTA.astro';
         <article
           class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
         >
-          <div
-            class="w-16 h-16 rounded-full bg-[var(--color-velvet-light)] flex items-center justify-center mb-5"
-          >
-            <svg
-              class="w-8 h-8 text-[var(--color-gold)]/60"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-              ></path>
-            </svg>
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-5">
+            <img
+              src="/images/criancas-breaking.jpg"
+              alt="Lúcio Pedra — professor de breaking"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
           </div>
           <h3 class="font-display font-bold text-[var(--color-velvet)] text-2xl mb-1">
             Lúcio Pedra

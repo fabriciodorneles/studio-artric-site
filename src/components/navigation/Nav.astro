@@ -35,13 +35,24 @@ const isActive = (href: string) =>
     <!-- Logo -->
     <a
       href="/"
-      class:list={[
-        'font-display font-bold text-xl sm:text-2xl tracking-tight transition-colors',
-        darkHero ? 'text-[var(--color-gold)]' : 'text-[var(--color-velvet)]',
-      ]}
+      class="flex items-center gap-2.5 group"
       aria-label="Studio ARTRIC — página inicial"
     >
-      Studio <span class="text-[var(--color-rouge)]">ARTRIC</span>
+      <img
+        src="/images/logo.jpg"
+        alt="Studio ARTRIC"
+        class="w-9 h-9 rounded-full object-cover"
+        width="36"
+        height="36"
+      />
+      <span
+        class:list={[
+          'font-display font-bold text-xl sm:text-2xl tracking-tight transition-colors',
+          darkHero ? 'text-[var(--color-gold)]' : 'text-[var(--color-velvet)]',
+        ]}
+      >
+        Studio <span class="text-[var(--color-rouge)]">ARTRIC</span>
+      </span>
     </a>
 
     <!-- Desktop links -->

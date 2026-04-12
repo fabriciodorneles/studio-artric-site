@@ -8,6 +8,7 @@ diasSemana: ["Segunda", "Quarta", "Sexta"]
 horario: "08h00 - 09h30"
 professor: Pati Artric
 vagas: 12
+imagemUrl: /images/alongamento.jpg
 destaque: true
 ativo: true
 ordem: 2

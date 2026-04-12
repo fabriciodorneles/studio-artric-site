@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { curso } = Astro.props;
-const { titulo, descricao, categoria, nivel, diasSemana, horario, professor, preco, destaque } =
+const { titulo, descricao, categoria, nivel, diasSemana, horario, professor, preco, destaque, imagemUrl } =
   curso.data;
 
 const categoriaGradient: Record<string, string> = {
@@ -24,8 +24,19 @@ const gradient = categoriaGradient[categoria] ?? 'from-[var(--color-velvet)] to-
 <article
   class="group bg-white rounded-[var(--radius-card)] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
 >
-  <!-- Faixa colorida de categoria -->
-  <div class:list={['h-3 bg-gradient-to-r', gradient]} aria-hidden="true"></div>
+  <!-- Imagem ou faixa colorida de categoria -->
+  {imagemUrl ? (
+    <div class="h-44 overflow-hidden">
+      <img
+        src={imagemUrl}
+        alt={titulo}
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+  ) : (
+    <div class:list={['h-3 bg-gradient-to-r', gradient]} aria-hidden="true"></div>
+  )}
 
   <div class="p-6 flex flex-col flex-1">
     <!-- Badges -->

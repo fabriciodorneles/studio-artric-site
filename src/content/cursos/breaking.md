@@ -8,6 +8,7 @@ diasSemana: ["Sábado"]
 horario: "10h00 - 11h00"
 professor: Lúcio Pedra
 vagas: 15
+imagemUrl: /images/criancas-breaking.jpg
 destaque: true
 ativo: true
 ordem: 3
