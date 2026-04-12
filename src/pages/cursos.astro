@@ -1,38 +1,16 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import CursoCard from '../components/cursos/CursoCard.astro';
-import SectionTitle from '../components/ui/SectionTitle.astro';
 import CTA from '../components/sections/CTA.astro';
 import { getCollection } from 'astro:content';
 
 const todosCursos = await getCollection('cursos', (c) => c.data.ativo);
 const cursosOrdenados = todosCursos.sort((a, b) => a.data.ordem - b.data.ordem);
-
-// Agrupar por categoria
-const categorias = ['aéreo', 'acrobacia', 'dança', 'teatro', 'infantil'] as const;
-type Categoria = (typeof categorias)[number];
-
-const porCategoria = categorias.reduce(
-  (acc, cat) => {
-    const lista = cursosOrdenados.filter((c) => c.data.categoria === cat);
-    if (lista.length > 0) acc[cat] = lista;
-    return acc;
-  },
-  {} as Record<Categoria, (typeof cursosOrdenados)[number][]>,
-);
-
-const categoriaLabel: Record<Categoria, string> = {
-  aéreo: 'Acrobacia Aérea',
-  acrobacia: 'Acrobacia & Contorção',
-  dança: 'Dança',
-  teatro: 'Teatro & Circo',
-  infantil: 'Infantil',
-};
 ---
 
 <PageLayout
   title="Cursos"
-  description="Conheça todos os cursos do Studio ARTRIC: acrobacia aérea, alongamento, contorção, breaking, ballet humanizado e circo-teatro em Santa Teresa, Rio de Janeiro."
+  description="Conheça todos os cursos do Studio ARTRIC: acrobacia aérea, alongamento, contorção, breaking e ballet para crianças em Santa Teresa, Rio de Janeiro."
 >
   <!-- Hero -->
   <section class="bg-[var(--color-velvet)] py-20 sm:py-24 text-white">
@@ -47,24 +25,14 @@ const categoriaLabel: Record<Categoria, string> = {
     </div>
   </section>
 
-  <!-- Grid de cursos por categoria -->
+  <!-- Grid de cursos -->
   <section class="py-16 sm:py-24 bg-[var(--color-ivory)]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
-      {
-        (Object.keys(porCategoria) as Categoria[]).map((cat) => (
-          <div>
-            <SectionTitle
-              eyebrow={cat}
-              title={categoriaLabel[cat]}
-            />
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {porCategoria[cat].map((curso) => (
-                <CursoCard curso={curso} />
-              ))}
-            </div>
-          </div>
-        ))
-      }
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cursosOrdenados.map((curso) => (
+          <CursoCard curso={curso} />
+        ))}
+      </div>
     </div>
   </section>
 
@@ -73,7 +41,7 @@ const categoriaLabel: Record<Categoria, string> = {
     subtitulo="Entre em contato e tire todas as suas dúvidas. Teremos prazer em te ajudar a escolher o curso certo."
     ctaTexto="Fale Conosco"
     ctaHref="/contato"
-    ctaSecundarioTexto="Ver a agenda"
-    ctaSecundarioHref="/agenda"
+    ctaSecundarioTexto="Ver os horários"
+    ctaSecundarioHref="/horarios"
   />
 </PageLayout>

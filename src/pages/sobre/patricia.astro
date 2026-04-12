@@ -1,0 +1,165 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTA from '../../components/sections/CTA.astro';
+---
+
+<PageLayout
+  title="Patricia de Souza"
+  description="Conheça Patricia de Souza — artista circense, educadora e fundadora do Studio ARTRIC. Formada pela Escola Nacional de Circo em 2010, criadora de espetáculos reconhecidos no Brasil e na Europa."
+>
+  <!-- Hero -->
+  <section class="bg-[var(--color-velvet)] py-20 sm:py-28 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-accent italic text-[var(--color-gold)] text-xl mb-4">Fundadora do Studio ARTRIC</p>
+      <h1 class="font-display font-black text-white text-4xl sm:text-6xl mb-6 text-balance">
+        Patricia de Souza
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Artista circense, professora e criadora de mundos. Uma trajetória de mais de uma década entre o palco e a sala de aula.
+      </p>
+    </div>
+  </section>
+
+  <!-- Apresentação -->
+  <section class="py-20 sm:py-28 bg-[var(--color-ivory)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Foto aérea -->
+        <div class="rounded-2xl overflow-hidden aspect-[4/5]">
+          <img
+            src="/images/aerea-tecido.jpg"
+            alt="Patricia de Souza em acrobacia aérea no tecido"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+
+        <div>
+          <p class="font-accent italic text-[var(--color-teal)] text-lg mb-2">Sobre Pati</p>
+          <h2 class="font-display font-bold text-[var(--color-velvet)] text-3xl sm:text-4xl mb-6">
+            Uma artista que<br />
+            <span class="text-[var(--color-rouge)]">acredita no que ensina</span>
+          </h2>
+          <div class="space-y-4 text-[var(--color-charcoal-light)] leading-relaxed mb-8">
+            <p>
+              Formada pela <strong class="text-[var(--color-charcoal)]">Escola Nacional de Circo em 2010</strong>, Patricia de Souza construiu uma carreira marcada por autenticidade, técnica e poesia no movimento — sendo reconhecida tanto no Brasil quanto internacionalmente.
+            </p>
+            <p>
+              Com uma linguagem própria que mistura força, sensibilidade e presença cênica, Pati transita entre o palco e a sala de aula com a mesma paixão. É a mente criativa por trás do Studio ARTRIC, espaço que fundou para ser um ponto de encontro entre formação, liberdade artística e desenvolvimento humano.
+            </p>
+            <p>
+              Com mais de uma década de experiência como performer, professora e criadora, Pati segue se reinventando, inspirando e cultivando novas gerações de artistas e amantes do movimento.
+            </p>
+          </div>
+          <blockquote class="border-l-2 border-[var(--color-gold)] pl-6 italic text-[var(--color-charcoal)] text-lg leading-relaxed">
+            "Não acredito em corpos ideais, e sim em corpos presentes. A arte acontece quando há escuta, entrega e verdade no gesto."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Espetáculos autorais -->
+  <section class="py-20 sm:py-28 bg-[var(--color-velvet)] text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <p class="font-accent italic text-[var(--color-gold)] text-lg mb-3">Artista independente</p>
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl">
+          Espetáculos autorais
+        </h2>
+        <p class="text-white/60 text-lg mt-4 max-w-2xl mx-auto">
+          Do Rio de Janeiro à Europa — obras que tocam públicos diversos, da lona à rua, do solo ao ar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Destino das Flores -->
+        <article class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/8 hover:border-white/20 transition-all duration-300">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-gold)]/20 flex items-center justify-center mb-5">
+            <span class="text-xl">🌸</span>
+          </div>
+          <h3 class="font-display font-bold text-white text-xl mb-3">Destino das Flores</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Um mergulho poético em delicadezas e resistências. Espetáculo que explora a fragilidade e a força coexistindo no mesmo corpo.
+          </p>
+        </article>
+
+        <!-- Insânia -->
+        <article class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/8 hover:border-white/20 transition-all duration-300">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-rouge)]/20 flex items-center justify-center mb-5">
+            <span class="text-xl">🌀</span>
+          </div>
+          <h3 class="font-display font-bold text-white text-xl mb-3">Insânia</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Espetáculo visceral que percorre os limites da mente e do corpo. Uma obra que não pede permissão para existir.
+          </p>
+        </article>
+
+        <!-- OUTONO -->
+        <article class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/8 hover:border-white/20 transition-all duration-300">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-teal)]/20 flex items-center justify-center mb-5">
+            <span class="text-xl">🍂</span>
+          </div>
+          <h3 class="font-display font-bold text-white text-xl mb-3">OUTONO</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Solo autoral onde o corpo narra silêncios, mudanças e memórias. Uma obra sobre o tempo e o que ele transforma em nós.
+          </p>
+        </article>
+      </div>
+
+      <p class="text-center text-white/40 text-sm mt-10">
+        Além das criações próprias, Pati atua como diretora, preparadora corporal e provocadora criativa em projetos de outros artistas e companhias.
+      </p>
+    </div>
+  </section>
+
+  <!-- Studio ARTRIC: sua extensão viva -->
+  <section class="py-20 sm:py-28 bg-[var(--color-ivory)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="font-accent italic text-[var(--color-teal)] text-lg mb-3">Onde tudo converge</p>
+        <h2 class="font-display font-bold text-[var(--color-velvet)] text-3xl sm:text-4xl">
+          O Studio ARTRIC: sua extensão viva
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-[var(--color-mist)] mb-10">
+        <p class="text-[var(--color-charcoal-light)] leading-relaxed mb-6">
+          O Studio ARTRIC nasce do desejo de Pati de oferecer um espaço que respeite a singularidade de cada corpo, unindo o rigor técnico à escuta sensível. Mais do que uma escola, é um lugar de encontro.
+        </p>
+        <ul class="space-y-3">
+          {[
+            'Circo, dança e movimento — para crianças, jovens e adultos',
+            'Arte, educação e liberdade — sem corpos ideais, com corpos presentes',
+            'Pessoas de todas as idades e histórias — bem-vindas do jeito que são',
+          ].map((item) => (
+            <li class="flex items-start gap-3 text-[var(--color-charcoal)]">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-teal)]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+              </svg>
+              <span class="text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="text-center">
+        <a
+          href="/sobre"
+          class="inline-flex items-center gap-2 text-[var(--color-rouge)] font-bold hover:gap-3 transition-all duration-200"
+        >
+          ← Voltar para Sobre o Studio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    titulo="Venha aprender com Pati"
+    subtitulo="Aulas de acrobacia aérea, contorção e muito mais no coração de Santa Teresa."
+    ctaTexto="Ver os Cursos"
+    ctaHref="/cursos"
+    ctaSecundarioTexto="Fale Conosco"
+    ctaSecundarioHref="/contato"
+  />
+</PageLayout>

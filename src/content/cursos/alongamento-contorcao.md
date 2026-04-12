@@ -1,11 +1,11 @@
 ---
 titulo: Alongamento e Contorção
-descricao: Desenvolva flexibilidade profunda e expressividade corporal através de técnicas especializadas de alongamento e contorção circense.
+descricao: Desenvolva flexibilidade profunda e expressividade corporal com técnicas especializadas de alongamento e contorção circense, conduzidas com segurança e respeito ao seu tempo.
 categoria: acrobacia
 nivel: todos os níveis
 duracao: "1h30"
 diasSemana: ["Segunda", "Quarta", "Sexta"]
-horario: "08h00 - 09h30"
+horario: "08h00 – 09h30"
 professor: Patricia de Souza
 vagas: 12
 imagemUrl: /images/alongamento.jpg
@@ -14,7 +14,9 @@ ativo: true
 ordem: 2
 ---
 
-O alongamento e a contorção são pilares do trabalho circense e das artes cênicas. No Studio ARTRIC, oferecemos aulas especializadas que respeitam o seu tempo e o seu corpo, conduzindo um processo seguro e progressivo de ganho de flexibilidade.
+O alongamento e a contorção são pilares do trabalho circense e das artes cênicas — e também uma porta de entrada poderosa para qualquer pessoa que queira se reconectar ao próprio corpo. No Studio ARTRIC, essa prática é conduzida por Patricia de Souza com um olhar cuidadoso que respeita a história e os limites de cada aluno.
+
+Aqui não existe comparação nem competição. O processo é progressivo, seguro e guiado pela escuta: o seu corpo dita o ritmo, e a técnica serve como ferramenta, não como imposição.
 
 ## O que você vai aprender
 
@@ -26,4 +28,8 @@ O alongamento e a contorção são pilares do trabalho circense e das artes cên
 
 ## Para quem é
 
-Para qualquer pessoa que queira desenvolver flexibilidade, seja para o circo, dança, yoga, esportes ou simplesmente para se sentir melhor no próprio corpo. As turmas acolhem todos os níveis de flexibilidade — não é preciso ser flexível para começar.
+Para qualquer pessoa que queira desenvolver flexibilidade — seja para o circo, dança, yoga, esportes ou simplesmente para se sentir melhor no próprio corpo. Não é preciso ser flexível para começar. É exatamente aqui que a flexibilidade se constrói.
+
+## Sobre a Professora Patricia de Souza
+
+Fundadora do Studio ARTRIC, formada pela Escola Nacional de Circo em 2010. Com mais de uma década de experiência como performer e educadora, Pati conduz as aulas com o mesmo cuidado com que cria seus espetáculos: atenção ao detalhe, respeito ao processo e presença total.

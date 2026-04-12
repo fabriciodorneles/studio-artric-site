@@ -1,0 +1,270 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTA from '../components/sections/CTA.astro';
+
+const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+
+const horarios: {
+  dia: string;
+  aulas: { horario: string; titulo: string; professor?: string; cor: string; href: string }[];
+}[] = [
+  {
+    dia: 'Segunda',
+    aulas: [
+      {
+        horario: '08h00 – 09h30',
+        titulo: 'Alongamento e Contorção',
+        professor: 'Patricia de Souza',
+        cor: 'teal',
+        href: '/cursos/alongamento-contorcao',
+      },
+    ],
+  },
+  {
+    dia: 'Terça',
+    aulas: [
+      {
+        horario: '19h00 – 20h30',
+        titulo: 'Acrobacia Aérea',
+        professor: 'Danilo Gomes',
+        cor: 'rouge',
+        href: '/cursos/acrobacia-aerea',
+      },
+    ],
+  },
+  {
+    dia: 'Quarta',
+    aulas: [
+      {
+        horario: '08h00 – 09h30',
+        titulo: 'Alongamento e Contorção',
+        professor: 'Patricia de Souza',
+        cor: 'teal',
+        href: '/cursos/alongamento-contorcao',
+      },
+      {
+        horario: '17h00 – 17h50',
+        titulo: 'Ballet para Crianças',
+        cor: 'gold',
+        href: '/cursos/ballet-humanizado',
+      },
+    ],
+  },
+  {
+    dia: 'Quinta',
+    aulas: [
+      {
+        horario: '19h00 – 20h30',
+        titulo: 'Acrobacia Aérea',
+        professor: 'Danilo Gomes',
+        cor: 'rouge',
+        href: '/cursos/acrobacia-aerea',
+      },
+    ],
+  },
+  {
+    dia: 'Sexta',
+    aulas: [
+      {
+        horario: '08h00 – 09h30',
+        titulo: 'Alongamento e Contorção',
+        professor: 'Patricia de Souza',
+        cor: 'teal',
+        href: '/cursos/alongamento-contorcao',
+      },
+    ],
+  },
+  {
+    dia: 'Sábado',
+    aulas: [
+      {
+        horario: '09h00 – 09h50',
+        titulo: 'Ballet para Crianças',
+        cor: 'gold',
+        href: '/cursos/ballet-humanizado',
+      },
+      {
+        horario: '10h00 – 11h00',
+        titulo: 'Breaking',
+        professor: 'Lúcio Pedra',
+        cor: 'velvet',
+        href: '/cursos/breaking',
+      },
+    ],
+  },
+];
+
+const corMap: Record<string, { bg: string; text: string; border: string }> = {
+  rouge: {
+    bg: 'bg-[var(--color-rouge)]/10',
+    text: 'text-[var(--color-rouge)]',
+    border: 'border-[var(--color-rouge)]',
+  },
+  teal: {
+    bg: 'bg-[var(--color-teal)]/10',
+    text: 'text-[var(--color-teal)]',
+    border: 'border-[var(--color-teal)]',
+  },
+  gold: {
+    bg: 'bg-[var(--color-gold)]/10',
+    text: 'text-[var(--color-charcoal)]',
+    border: 'border-[var(--color-gold)]',
+  },
+  velvet: {
+    bg: 'bg-[var(--color-velvet)]/8',
+    text: 'text-[var(--color-velvet)]',
+    border: 'border-[var(--color-velvet-light)]',
+  },
+};
+---
+
+<PageLayout
+  title="Horários"
+  description="Grade de horários semanal do Studio ARTRIC — acrobacia aérea, alongamento, contorção, breaking e ballet para crianças em Santa Teresa, Rio de Janeiro."
+>
+  <!-- Hero -->
+  <section class="bg-[var(--color-velvet)] py-20 sm:py-24 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-accent italic text-[var(--color-gold)] text-xl mb-4">Planeje sua semana</p>
+      <h1 class="font-display font-black text-white text-4xl sm:text-6xl mb-6">
+        Grade de Horários
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Escolha o dia e o horário que melhor encaixa na sua rotina. Dúvidas? Entre em contato — adoramos te receber.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grade semanal -->
+  <section class="py-16 sm:py-24 bg-[var(--color-ivory)]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <!-- Desktop: tabela -->
+      <div class="hidden sm:block overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr>
+              <th class="w-28 py-4 pr-6 text-left text-xs font-bold uppercase tracking-widest text-[var(--color-charcoal-light)]">
+                Dia
+              </th>
+              <th class="py-4 text-left text-xs font-bold uppercase tracking-widest text-[var(--color-charcoal-light)]">
+                Aulas
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {horarios.map(({ dia, aulas }) => (
+              <tr class="border-t border-[var(--color-mist)] group">
+                <td class="py-5 pr-6 align-top">
+                  <span class="font-display font-bold text-[var(--color-velvet)] text-lg">
+                    {dia}
+                  </span>
+                </td>
+                <td class="py-4">
+                  <div class="flex flex-wrap gap-3">
+                    {aulas.map((aula) => {
+                      const cores = corMap[aula.cor] ?? corMap.rouge;
+                      return (
+                        <a
+                          href={aula.href}
+                          class={`group/card flex flex-col gap-1 rounded-xl border ${cores.bg} ${cores.border} px-5 py-3.5 min-w-[200px] hover:shadow-md transition-all duration-200`}
+                        >
+                          <span class="text-xs font-semibold text-[var(--color-charcoal-light)] tracking-wide">
+                            {aula.horario}
+                          </span>
+                          <span class={`font-display font-bold text-base ${cores.text} group-hover/card:underline`}>
+                            {aula.titulo}
+                          </span>
+                          {aula.professor && (
+                            <span class="text-xs text-[var(--color-charcoal-light)]">
+                              {aula.professor}
+                            </span>
+                          )}
+                        </a>
+                      );
+                    })}
+                  </div>
+                </td>
+              </tr>
+            ))}
+            <tr class="border-t border-[var(--color-mist)]">
+              <td class="py-5 pr-6 align-top">
+                <span class="font-display font-bold text-[var(--color-charcoal-light)]/50 text-lg">Domingo</span>
+              </td>
+              <td class="py-5">
+                <span class="text-sm text-[var(--color-charcoal-light)]/50 italic">Sem aulas regulares</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile: cards por dia -->
+      <div class="sm:hidden space-y-6">
+        {horarios.map(({ dia, aulas }) => (
+          <div>
+            <h2 class="font-display font-bold text-[var(--color-velvet)] text-xl mb-3 flex items-center gap-3">
+              <span class="block w-6 h-0.5 bg-[var(--color-rouge)]"></span>
+              {dia}
+            </h2>
+            <div class="space-y-3">
+              {aulas.map((aula) => {
+                const cores = corMap[aula.cor] ?? corMap.rouge;
+                return (
+                  <a
+                    href={aula.href}
+                    class={`flex flex-col gap-1 rounded-xl border ${cores.bg} ${cores.border} px-5 py-4 hover:shadow-md transition-all duration-200`}
+                  >
+                    <span class="text-xs font-semibold text-[var(--color-charcoal-light)] tracking-wide">
+                      {aula.horario}
+                    </span>
+                    <span class={`font-display font-bold text-base ${cores.text}`}>
+                      {aula.titulo}
+                    </span>
+                    {aula.professor && (
+                      <span class="text-xs text-[var(--color-charcoal-light)]">{aula.professor}</span>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+        <div>
+          <h2 class="font-display font-bold text-[var(--color-charcoal-light)]/50 text-xl mb-3 flex items-center gap-3">
+            <span class="block w-6 h-0.5 bg-[var(--color-mist)]"></span>
+            Domingo
+          </h2>
+          <p class="text-sm text-[var(--color-charcoal-light)]/50 italic px-1">Sem aulas regulares</p>
+        </div>
+      </div>
+
+      <!-- Nota informativa -->
+      <div class="mt-14 bg-white rounded-2xl p-6 sm:p-8 border border-[var(--color-mist)] flex flex-col sm:flex-row gap-5 items-start">
+        <svg class="w-6 h-6 flex-shrink-0 text-[var(--color-teal)] mt-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <div>
+          <p class="font-bold text-[var(--color-charcoal)] mb-1">Aulas experimentais e mais informações</p>
+          <p class="text-sm text-[var(--color-charcoal-light)] leading-relaxed">
+            Os horários podem sofrer ajustes ao longo do ano. Para confirmar disponibilidade, agendar uma aula experimental
+            ou tirar dúvidas, entre em contato pelo Instagram{' '}
+            <a href="https://www.instagram.com/studioartric" target="_blank" rel="noopener noreferrer" class="text-[var(--color-rouge)] font-medium hover:underline">
+              @studioartric
+            </a>{' '}
+            ou pelo WhatsApp.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    titulo="Pronto para começar?"
+    subtitulo="Agende sua aula experimental e venha descobrir o que o movimento pode fazer por você."
+    ctaTexto="Fale Conosco"
+    ctaHref="/contato"
+    ctaSecundarioTexto="Ver os cursos"
+    ctaSecundarioHref="/cursos"
+  />
+</PageLayout>

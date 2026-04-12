@@ -16,9 +16,9 @@
   --color-charcoal-light: #555555;
 
   /* ── Tipografia ── */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-  --font-accent: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-accent: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
 
   /* ── Espaçamentos customizados ── */
   --spacing-section: 5rem;
