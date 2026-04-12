@@ -6,7 +6,7 @@ nivel: todos os níveis
 duracao: "1h30"
 diasSemana: ["Segunda", "Quarta", "Sexta"]
 horario: "08h00 - 09h30"
-professor: Pati Artric
+professor: Patricia de Souza
 vagas: 12
 imagemUrl: /images/alongamento.jpg
 destaque: true
