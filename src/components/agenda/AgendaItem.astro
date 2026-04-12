@@ -1,0 +1,131 @@
+---
+import Badge from '../ui/Badge.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  item: CollectionEntry<'agenda'>;
+}
+
+const { item } = Astro.props;
+const { titulo, descricao, tipo, dataInicio, horario, local, vagas, inscricaoLink, destaque } =
+  item.data;
+
+const dia = dataInicio.toLocaleDateString('pt-BR', { day: '2-digit' });
+const mes = dataInicio.toLocaleDateString('pt-BR', { month: 'short' }).replace('.', '');
+const diaSemana = dataInicio.toLocaleDateString('pt-BR', { weekday: 'long' });
+---
+
+<div
+  class:list={[
+    'flex gap-4 sm:gap-6 p-4 sm:p-6 rounded-xl transition-colors duration-200 hover:bg-[var(--color-mist)]/50',
+    destaque && 'border border-[var(--color-gold)]/30 bg-[var(--color-gold)]/5',
+  ]}
+>
+  <!-- Data bubble -->
+  <div class="flex-shrink-0 text-center" aria-hidden="true">
+    <div
+      class="w-14 sm:w-16 bg-[var(--color-velvet)] text-white rounded-xl p-2 flex flex-col items-center"
+    >
+      <span class="text-2xl sm:text-3xl font-display font-black leading-none">{dia}</span>
+      <span class="text-xs uppercase tracking-wider text-white/70 capitalize">{mes}</span>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 min-w-0">
+    <div class="flex flex-wrap items-center gap-2 mb-2">
+      <Badge variant="tipo" value={tipo} />
+      {
+        destaque && (
+          <span class="text-xs font-bold text-[var(--color-gold)] uppercase tracking-wide">
+            ★ Destaque
+          </span>
+        )
+      }
+    </div>
+
+    <h3 class="font-display font-bold text-[var(--color-velvet)] text-lg sm:text-xl mb-1">
+      {titulo}
+    </h3>
+
+    {
+      descricao && (
+        <p class="text-[var(--color-charcoal-light)] text-sm leading-relaxed mb-3 line-clamp-2">
+          {descricao}
+        </p>
+      )
+    }
+
+    <dl class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--color-charcoal-light)]">
+      <div class="flex items-center gap-1.5">
+        <svg
+          class="w-3.5 h-3.5 text-[var(--color-rouge)]/60"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+          ></path>
+        </svg>
+        <dt class="sr-only">Data e horário</dt>
+        <dd class="capitalize">{diaSemana}{horario ? `, ${horario}` : ''}</dd>
+      </div>
+      {
+        local && (
+          <div class="flex items-center gap-1.5">
+            <svg
+              class="w-3.5 h-3.5 text-[var(--color-rouge)]/60"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <dt class="sr-only">Local</dt>
+            <dd>{local}</dd>
+          </div>
+        )
+      }
+      {
+        vagas && (
+          <div class="flex items-center gap-1.5">
+            <svg
+              class="w-3.5 h-3.5 text-[var(--color-rouge)]/60"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+            <dt class="sr-only">Vagas</dt>
+            <dd>{vagas} vagas</dd>
+          </div>
+        )
+      }
+    </dl>
+
+    {
+      inscricaoLink && (
+        <a
+          href={inscricaoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-rouge)] hover:text-[var(--color-rouge-light)] transition-colors"
+        >
+          Inscrições abertas
+          <svg
+            class="w-3.5 h-3.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            aria-hidden="true"
+          >
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+</div>

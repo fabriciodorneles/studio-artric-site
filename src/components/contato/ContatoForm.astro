@@ -1,0 +1,162 @@
+---
+---
+
+<form
+  name="contato"
+  method="POST"
+  netlify
+  data-netlify="true"
+  class="space-y-6"
+  id="contato-form"
+  novalidate
+>
+  <input type="hidden" name="form-name" value="contato" />
+
+  <!-- Nome e Email -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="nome" class="block text-sm font-bold text-[var(--color-velvet)] mb-2">
+        Nome <span class="text-[var(--color-rouge)]" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        required
+        autocomplete="name"
+        placeholder="Seu nome completo"
+        class="w-full px-4 py-3 border border-[var(--color-mist)] rounded-lg bg-white text-[var(--color-charcoal)] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-rouge)] focus:border-transparent transition-shadow"
+      />
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-bold text-[var(--color-velvet)] mb-2">
+        Email <span class="text-[var(--color-rouge)]" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+        placeholder="seu@email.com"
+        class="w-full px-4 py-3 border border-[var(--color-mist)] rounded-lg bg-white text-[var(--color-charcoal)] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-rouge)] focus:border-transparent transition-shadow"
+      />
+    </div>
+  </div>
+
+  <!-- Telefone e Assunto -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="telefone" class="block text-sm font-bold text-[var(--color-velvet)] mb-2">
+        WhatsApp / Telefone
+      </label>
+      <input
+        type="tel"
+        id="telefone"
+        name="telefone"
+        autocomplete="tel"
+        placeholder="(21) 99999-9999"
+        class="w-full px-4 py-3 border border-[var(--color-mist)] rounded-lg bg-white text-[var(--color-charcoal)] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-rouge)] focus:border-transparent transition-shadow"
+      />
+    </div>
+    <div>
+      <label for="assunto" class="block text-sm font-bold text-[var(--color-velvet)] mb-2">
+        Assunto <span class="text-[var(--color-rouge)]" aria-hidden="true">*</span>
+      </label>
+      <select
+        id="assunto"
+        name="assunto"
+        required
+        class="w-full px-4 py-3 border border-[var(--color-mist)] rounded-lg bg-white text-[var(--color-charcoal)] focus:outline-none focus:ring-2 focus:ring-[var(--color-rouge)] focus:border-transparent transition-shadow"
+      >
+        <option value="" disabled selected>Selecione um assunto</option>
+        <option value="informacoes-cursos">Informações sobre cursos</option>
+        <option value="workshop">Workshop / evento especial</option>
+        <option value="matricula">Matrícula</option>
+        <option value="parceria">Parceria</option>
+        <option value="outros">Outros</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Mensagem -->
+  <div>
+    <label for="mensagem" class="block text-sm font-bold text-[var(--color-velvet)] mb-2">
+      Mensagem <span class="text-[var(--color-rouge)]" aria-hidden="true">*</span>
+    </label>
+    <textarea
+      id="mensagem"
+      name="mensagem"
+      required
+      rows="5"
+      placeholder="Escreva sua mensagem aqui..."
+      class="w-full px-4 py-3 border border-[var(--color-mist)] rounded-lg bg-white text-[var(--color-charcoal)] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-rouge)] focus:border-transparent transition-shadow resize-y"
+    ></textarea>
+  </div>
+
+  <!-- Status de envio -->
+  <div id="form-status" class="hidden" role="status" aria-live="polite"></div>
+
+  <!-- Botão -->
+  <button
+    type="submit"
+    class="w-full sm:w-auto bg-[var(--color-rouge)] text-white font-bold text-base px-10 py-4 rounded-full hover:bg-[var(--color-rouge-light)] transition-all duration-200 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-rouge)] disabled:opacity-60 disabled:cursor-not-allowed"
+    id="submit-btn"
+  >
+    Enviar Mensagem
+  </button>
+</form>
+
+<script>
+  const form = document.getElementById('contato-form') as HTMLFormElement;
+  const status = document.getElementById('form-status')!;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validação básica
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+      });
+
+      if (response.ok) {
+        showStatus('success', 'Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        form.reset();
+      } else {
+        throw new Error('Erro no envio');
+      }
+    } catch {
+      showStatus(
+        'error',
+        'Ocorreu um erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.',
+      );
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar Mensagem';
+    }
+  });
+
+  function showStatus(type: 'success' | 'error', message: string) {
+    status.classList.remove('hidden');
+    status.className = [
+      'rounded-lg p-4 text-sm font-medium',
+      type === 'success'
+        ? 'bg-green-50 text-green-800 border border-green-200'
+        : 'bg-red-50 text-red-800 border border-red-200',
+    ].join(' ');
+    status.textContent = message;
+  }
+</script>

@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Paleta de cores ── */
+  --color-velvet: #1a0a2e;
+  --color-velvet-light: #2d1654;
+  --color-rouge: #c0392b;
+  --color-rouge-light: #e74c3c;
+  --color-gold: #f5c518;
+  --color-gold-light: #ffd93d;
+  --color-ivory: #faf6ef;
+  --color-mist: #e8e0d4;
+  --color-teal: #0d7377;
+  --color-teal-light: #14a4a9;
+  --color-charcoal: #2d2d2d;
+  --color-charcoal-light: #555555;
+
+  /* ── Tipografia ── */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  --font-accent: 'Cormorant Garamond', Georgia, serif;
+
+  /* ── Espaçamentos customizados ── */
+  --spacing-section: 5rem;
+
+  /* ── Border radius ── */
+  --radius-card: 0.75rem;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-charcoal);
+    background-color: var(--color-ivory);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ── Utilitários globais ── */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+  }
+}

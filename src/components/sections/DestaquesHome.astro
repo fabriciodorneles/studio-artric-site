@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import SectionTitle from '../ui/SectionTitle.astro';
+import CursoCard from '../cursos/CursoCard.astro';
+
+const todosCursos = await getCollection('cursos', (c) => c.data.ativo);
+const destaques = todosCursos
+  .filter((c) => c.data.destaque)
+  .sort((a, b) => a.data.ordem - b.data.ordem)
+  .slice(0, 3);
+
+const cursosExibidos = destaques.length > 0
+  ? destaques
+  : todosCursos.sort((a, b) => a.data.ordem - b.data.ordem).slice(0, 3);
+---
+
+<section class="py-20 sm:py-28 bg-[var(--color-ivory)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <SectionTitle
+        eyebrow="Nossos cursos"
+        title="O que ensinamos"
+        subtitle="Do solo às alturas — modalidades para todos os corpos e idades."
+      />
+      <a
+        href="/cursos"
+        class="flex-shrink-0 inline-flex items-center gap-2 text-[var(--color-rouge)] font-bold text-sm hover:gap-3 transition-all duration-200 sm:mb-14"
+      >
+        Ver todos os cursos
+        <svg
+          class="w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cursosExibidos.map((curso) => <CursoCard curso={curso} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,258 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionTitle from '../components/ui/SectionTitle.astro';
+import CTA from '../components/sections/CTA.astro';
+---
+
+<PageLayout
+  title="Sobre"
+  description="Conheça a história do Studio ARTRIC e de Pati Artric — mais de uma década de artes circenses, conexão humana e transformação em Santa Teresa, Rio de Janeiro."
+>
+  <!-- Hero da página -->
+  <section class="bg-[var(--color-velvet)] py-20 sm:py-28 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-accent italic text-[var(--color-gold)] text-xl mb-4">Nossa história</p>
+      <h1 class="font-display font-black text-white text-4xl sm:text-6xl mb-6 text-balance">
+        Arte que forma,<br />
+        <span class="text-[var(--color-gold)]">transforma e conecta.</span>
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Desde 2013, o Studio ARTRIC é muito mais que uma escola de circo em Santa Teresa.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sobre o espaço -->
+  <section class="py-20 sm:py-28 bg-[var(--color-ivory)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <SectionTitle
+            eyebrow="O espaço"
+            title="Studio ARTRIC"
+            subtitle="Artes Recreativas Integradas ao Circo"
+          />
+          <div class="space-y-4 text-[var(--color-charcoal-light)] leading-relaxed">
+            <p>
+              Localizado no coração de Santa Teresa, Rio de Janeiro, o Studio ARTRIC vem, desde
+              2013, sendo referência em aulas de alongamento e contorção, além de acrobacia aérea.
+            </p>
+            <p>
+              Mais do que um espaço de treinamento técnico, somos um ambiente onde o corpo e as
+              relações humanas crescem juntos. Aqui, a técnica é essencial — mas nunca isolada.
+              Nossas aulas valorizam o respeito, a escuta e o acolhimento, criando uma comunidade de
+              aprendizado que transforma o exercício físico em uma experiência de vida.
+            </p>
+            <p>
+              Em 2025, ampliamos nosso repertório para incluir aulas de dança, como ballet
+              humanizado e breaking, para que crianças, jovens e adultos encontrem no Studio ARTRIC
+              um lar para o movimento.
+            </p>
+          </div>
+
+          <!-- Valores -->
+          <ul class="mt-8 space-y-3" role="list">
+            {
+              [
+                'Desenvolver flexibilidade, força e habilidades circenses com segurança',
+                'Explorar novas possibilidades de movimento, no chão e no ar',
+                'Fortalecer vínculos e a confiança entre alunos e professores',
+                'Crescer artisticamente e pessoalmente',
+              ].map((valor) => (
+                <li class="flex items-start gap-3 text-[var(--color-charcoal)]">
+                  <svg
+                    class="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-teal)]"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                  </svg>
+                  <span class="text-sm">{valor}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Visual placeholder -->
+        <div
+          class="rounded-2xl bg-[var(--color-velvet-light)] aspect-square flex items-center justify-center"
+        >
+          <div class="text-center p-8">
+            <div
+              class="w-20 h-20 rounded-full border-4 border-[var(--color-gold)]/30 mx-auto mb-4 flex items-center justify-center"
+            >
+              <svg
+                class="w-10 h-10 text-[var(--color-gold)]/40"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-white/30 text-sm italic">Fotos do espaço em breve</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fundadora -->
+  <section class="py-20 sm:py-28 bg-[var(--color-velvet)] text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Visual placeholder -->
+        <div class="rounded-2xl bg-[var(--color-velvet-light)] aspect-[4/5] flex items-center justify-center">
+          <div class="text-center p-8">
+            <div
+              class="w-20 h-20 rounded-full border-4 border-[var(--color-gold)]/30 mx-auto mb-4 flex items-center justify-center"
+            >
+              <svg
+                class="w-10 h-10 text-[var(--color-gold)]/40"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-white/30 text-sm italic">Foto da Pati em breve</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-accent italic text-[var(--color-gold)] text-xl mb-4">Fundadora</p>
+          <h2 class="font-display font-bold text-white text-4xl sm:text-5xl mb-6">Pati Artric</h2>
+          <p class="font-accent italic text-[var(--color-gold)]/80 text-lg mb-1">
+            Uma artista que acredita no que ensina
+          </p>
+          <div class="space-y-4 text-white/70 leading-relaxed mb-8">
+            <p>
+              Com mais de uma década de experiência como performer, professora e criadora, Pati
+              segue se reinventando, inspirando e cultivando novas gerações de artistas e amantes do
+              movimento.
+            </p>
+            <p>
+              Sua trajetória une o rigor técnico das artes circenses à sensibilidade humana de quem
+              sabe que o verdadeiro aprendizado acontece na relação entre corpos, não apenas em
+              exercícios.
+            </p>
+          </div>
+          <blockquote
+            class="border-l-2 border-[var(--color-gold)] pl-6 italic text-white/80 text-lg leading-relaxed"
+          >
+            "Não acredito em corpos ideais, e sim em corpos presentes. A arte acontece quando há
+            escuta, entrega e verdade no gesto."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipe de professores -->
+  <section class="py-20 sm:py-28 bg-[var(--color-ivory)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionTitle
+        eyebrow="Nossa equipe"
+        title="Professores"
+        subtitle="Artistas e educadores que trazem vivência real para cada aula."
+        center={true}
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+        <!-- Danilo Gomes -->
+        <article
+          class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <div
+            class="w-16 h-16 rounded-full bg-[var(--color-velvet-light)] flex items-center justify-center mb-5"
+          >
+            <svg
+              class="w-8 h-8 text-[var(--color-gold)]/60"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-[var(--color-velvet)] text-2xl mb-1">
+            Danilo Gomes
+          </h3>
+          <p class="text-[var(--color-rouge)] text-sm font-medium mb-4">
+            Circo, Teatro & Acrobacia Aérea
+          </p>
+          <p class="text-[var(--color-charcoal-light)] text-sm leading-relaxed mb-4">
+            Ator, artista de circo e educador do movimento. Com formação em artes cênicas e circo
+            pelo PROFAC (RJ), Danilo atua há mais de 4 anos no Studio ARTRIC, guiando crianças,
+            jovens e adultos no aprendizado do corpo, do gesto e da cena.
+          </p>
+          <ul class="flex flex-wrap gap-2" role="list" aria-label="Especialidades">
+            {
+              ['Técnicas circenses', 'Jogo teatral', 'Consciência corporal'].map((tag) => (
+                <li class="text-xs bg-[var(--color-mist)] text-[var(--color-charcoal)] px-3 py-1 rounded-full">
+                  {tag}
+                </li>
+              ))
+            }
+          </ul>
+        </article>
+
+        <!-- Lúcio Pedra -->
+        <article
+          class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <div
+            class="w-16 h-16 rounded-full bg-[var(--color-velvet-light)] flex items-center justify-center mb-5"
+          >
+            <svg
+              class="w-8 h-8 text-[var(--color-gold)]/60"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-[var(--color-velvet)] text-2xl mb-1">
+            Lúcio Pedra
+          </h3>
+          <p class="text-[var(--color-rouge)] text-sm font-medium mb-4">Breaking & Hip Hop</p>
+          <p class="text-[var(--color-charcoal-light)] text-sm leading-relaxed mb-4">
+            Referência no breaking do Rio de Janeiro, Lúcio é pesquisador da cultura hip hop,
+            artista atuante e professor. Com anos de vivência nas batalhas, nas rodas e nos palcos,
+            ele traz para as aulas muito mais que movimento: vivência, musicalidade, disciplina e
+            liberdade.
+          </p>
+          <ul class="flex flex-wrap gap-2" role="list" aria-label="Especialidades">
+            {
+              ['Breaking', 'Cultura Hip Hop', 'Musicalidade'].map((tag) => (
+                <li class="text-xs bg-[var(--color-mist)] text-[var(--color-charcoal)] px-3 py-1 rounded-full">
+                  {tag}
+                </li>
+              ))
+            }
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    titulo="Venha conhecer o estúdio"
+    subtitulo="Agende uma visita ou entre em contato. Teremos prazer em te apresentar o Studio ARTRIC."
+    ctaTexto="Fale Conosco"
+    ctaHref="/contato"
+    ctaSecundarioTexto="Ver os cursos"
+    ctaSecundarioHref="/cursos"
+  />
+</PageLayout>

@@ -1,0 +1,189 @@
+---
+interface Props {
+  darkHero?: boolean;
+}
+
+const { darkHero = false } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Início' },
+  { href: '/sobre', label: 'Sobre' },
+  { href: '/cursos', label: 'Cursos' },
+  { href: '/agenda', label: 'Agenda' },
+  { href: '/contato', label: 'Contato' },
+];
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<header
+  class:list={[
+    'fixed top-0 left-0 right-0 z-50 transition-colors duration-300',
+    darkHero
+      ? 'bg-transparent'
+      : 'bg-[var(--color-ivory)] shadow-sm border-b border-[var(--color-mist)]',
+  ]}
+  id="nav-header"
+  data-dark-hero={darkHero ? 'true' : 'false'}
+>
+  <nav
+    class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20"
+    aria-label="Navegação principal"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class:list={[
+        'font-display font-bold text-xl sm:text-2xl tracking-tight transition-colors',
+        darkHero ? 'text-[var(--color-gold)]' : 'text-[var(--color-velvet)]',
+      ]}
+      aria-label="Studio ARTRIC — página inicial"
+    >
+      Studio <span class="text-[var(--color-rouge)]">ARTRIC</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-8" role="list">
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'text-sm font-medium tracking-wide uppercase transition-colors duration-200 relative group',
+                darkHero
+                  ? isActive(href)
+                    ? 'text-[var(--color-gold)]'
+                    : 'text-white/80 hover:text-[var(--color-gold)]'
+                  : isActive(href)
+                    ? 'text-[var(--color-rouge)]'
+                    : 'text-[var(--color-charcoal)] hover:text-[var(--color-rouge)]',
+              ]}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {label}
+              <span
+                class:list={[
+                  'absolute -bottom-1 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left',
+                  darkHero ? 'bg-[var(--color-gold)]' : 'bg-[var(--color-rouge)]',
+                  isActive(href) ? 'scale-x-100' : '',
+                ]}
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- CTA Desktop -->
+    <a
+      href="/contato"
+      class="hidden md:inline-flex items-center gap-2 bg-[var(--color-rouge)] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[var(--color-rouge-light)] transition-colors duration-200"
+    >
+      Fale Conosco
+    </a>
+
+    <!-- Hamburger mobile -->
+    <button
+      id="menu-toggle"
+      class:list={[
+        'md:hidden flex flex-col gap-1.5 p-2 rounded-md transition-colors',
+        darkHero
+          ? 'text-white hover:bg-white/10'
+          : 'text-[var(--color-velvet)] hover:bg-[var(--color-mist)]',
+      ]}
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="block w-6 h-0.5 bg-current transition-all duration-200" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-current transition-all duration-200" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-current transition-all duration-200" id="bar3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-[var(--color-velvet)] border-t border-white/10"
+    aria-hidden="true"
+  >
+    <ul class="flex flex-col py-4 px-4" role="list">
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'block py-3 px-4 text-lg font-medium rounded-lg transition-colors',
+                isActive(href)
+                  ? 'text-[var(--color-gold)] bg-white/5'
+                  : 'text-white/80 hover:text-[var(--color-gold)] hover:bg-white/5',
+              ]}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="mt-4 px-4">
+        <a
+          href="/contato"
+          class="block text-center bg-[var(--color-rouge)] text-white font-bold py-3 px-6 rounded-full hover:bg-[var(--color-rouge-light)] transition-colors"
+        >
+          Fale Conosco
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- Spacer para compensar a nav fixa (não usado em darkHero) -->
+{!darkHero && <div class="h-16 sm:h-20"></div>}
+
+<script>
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+  const header = document.getElementById('nav-header')!;
+  const isDarkHero = header.dataset.darkHero === 'true';
+
+  // Mobile menu toggle
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', !isOpen);
+    menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+
+    if (isOpen) {
+      bar1.style.transform = 'translateY(8px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+    }
+  });
+
+  // Scroll effect: fundo sólido ao rolar no modo darkHero
+  if (isDarkHero) {
+    const updateNav = () => {
+      if (window.scrollY > 60) {
+        header.classList.add('bg-[#1a0a2e]', 'shadow-lg');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.remove('bg-[#1a0a2e]', 'shadow-lg');
+        header.classList.add('bg-transparent');
+      }
+    };
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  }
+</script>

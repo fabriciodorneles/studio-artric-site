@@ -1,0 +1,44 @@
+---
+interface Props {
+  variant?: 'categoria' | 'nivel' | 'tipo';
+  value: string;
+}
+
+const { variant = 'categoria', value } = Astro.props;
+
+const categoriaColors: Record<string, string> = {
+  aéreo: 'bg-[var(--color-teal)]/15 text-[var(--color-teal)]',
+  acrobacia: 'bg-[var(--color-rouge)]/15 text-[var(--color-rouge)]',
+  dança: 'bg-purple-100 text-purple-700',
+  teatro: 'bg-amber-100 text-amber-700',
+  infantil: 'bg-[var(--color-gold)]/20 text-yellow-700',
+};
+
+const nivelColors: Record<string, string> = {
+  iniciante: 'bg-green-100 text-green-700',
+  intermediário: 'bg-blue-100 text-blue-700',
+  avançado: 'bg-red-100 text-red-700',
+  'todos os níveis': 'bg-gray-100 text-gray-600',
+};
+
+const tipoColors: Record<string, string> = {
+  aula: 'bg-gray-100 text-gray-600',
+  workshop: 'bg-[var(--color-teal)]/15 text-[var(--color-teal)]',
+  'espetáculo': 'bg-[var(--color-rouge)]/15 text-[var(--color-rouge)]',
+  evento: 'bg-[var(--color-gold)]/20 text-yellow-700',
+  feriado: 'bg-gray-100 text-gray-500',
+};
+
+const colorMap = { categoria: categoriaColors, nivel: nivelColors, tipo: tipoColors };
+const colors = colorMap[variant];
+const colorClass = colors[value] ?? 'bg-gray-100 text-gray-600';
+---
+
+<span
+  class:list={[
+    'inline-block text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-full',
+    colorClass,
+  ]}
+>
+  {value}
+</span>

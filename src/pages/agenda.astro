@@ -1,0 +1,89 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import AgendaList from '../components/agenda/AgendaList.astro';
+import CTA from '../components/sections/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const todosItens = await getCollection('agenda');
+const hoje = new Date();
+hoje.setHours(0, 0, 0, 0);
+
+const proximosEventos = todosItens.filter((item) => item.data.dataInicio >= hoje);
+const eventosPassados = todosItens
+  .filter((item) => item.data.dataInicio < hoje)
+  .sort((a, b) => b.data.dataInicio.getTime() - a.data.dataInicio.getTime())
+  .slice(0, 5);
+---
+
+<PageLayout
+  title="Agenda"
+  description="Próximos workshops, espetáculos e eventos especiais do Studio ARTRIC em Santa Teresa, Rio de Janeiro."
+>
+  <!-- Hero -->
+  <section class="bg-[var(--color-velvet)] py-20 sm:py-24 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-accent italic text-[var(--color-gold)] text-xl mb-4">Fique por dentro</p>
+      <h1 class="font-display font-black text-white text-4xl sm:text-6xl mb-6">Agenda</h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Workshops, aulas abertas, espetáculos e eventos especiais. Confira o que está por vir.
+      </p>
+    </div>
+  </section>
+
+  <!-- Próximos eventos -->
+  <section class="py-16 sm:py-24 bg-[var(--color-ivory)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display font-bold text-[var(--color-velvet)] text-3xl mb-10 flex items-center gap-4">
+        <span class="block w-10 h-0.5 bg-[var(--color-rouge)]" aria-hidden="true"></span>
+        Próximos eventos
+      </h2>
+
+      {
+        proximosEventos.length === 0 ? (
+          <div class="text-center py-16 bg-white rounded-2xl">
+            <p class="text-[var(--color-charcoal-light)] text-lg mb-2">
+              Nenhum evento programado no momento.
+            </p>
+            <p class="text-sm text-[var(--color-charcoal-light)]">
+              Siga{' '}
+              <a
+                href="https://www.instagram.com/studioartric"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[var(--color-rouge)] font-medium hover:underline"
+              >
+                @studioartric
+              </a>{' '}
+              no Instagram para ficar por dentro das novidades!
+            </p>
+          </div>
+        ) : (
+          <AgendaList items={proximosEventos} />
+        )
+      }
+
+      {
+        eventosPassados.length > 0 && (
+          <div class="mt-16">
+            <h2 class="font-display font-bold text-[var(--color-charcoal-light)] text-2xl mb-8 flex items-center gap-4">
+              <span class="block w-8 h-0.5 bg-[var(--color-mist)]" aria-hidden="true" />
+              Eventos anteriores
+            </h2>
+            <div class="opacity-60">
+              <AgendaList items={eventosPassados} />
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <CTA
+    titulo="Quer ser avisado dos próximos eventos?"
+    subtitulo="Entre em contato ou siga nosso Instagram @studioartric para não perder nada."
+    ctaTexto="Fale Conosco"
+    ctaHref="/contato"
+    ctaSecundarioTexto="Ver os cursos"
+    ctaSecundarioHref="/cursos"
+  />
+</PageLayout>

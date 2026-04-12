@@ -1,0 +1,59 @@
+---
+import AgendaItem from './AgendaItem.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  items: CollectionEntry<'agenda'>[];
+  limit?: number;
+}
+
+const { items, limit } = Astro.props;
+
+// Ordenar por data e opcionalmente limitar
+const sorted = [...items]
+  .sort((a, b) => a.data.dataInicio.getTime() - b.data.dataInicio.getTime());
+
+const exibidos = limit ? sorted.slice(0, limit) : sorted;
+
+// Agrupar por mês/ano
+type AgendaGroup = { mesAno: string; items: CollectionEntry<'agenda'>[] };
+const grupos: AgendaGroup[] = [];
+
+for (const item of exibidos) {
+  const mesAno = item.data.dataInicio.toLocaleDateString('pt-BR', {
+    month: 'long',
+    year: 'numeric',
+  });
+  const grupo = grupos.find((g) => g.mesAno === mesAno);
+  if (grupo) {
+    grupo.items.push(item);
+  } else {
+    grupos.push({ mesAno, items: [item] });
+  }
+}
+---
+
+{
+  grupos.length === 0 ? (
+    <div class="text-center py-16 text-[var(--color-charcoal-light)]">
+      <p class="text-lg">Nenhum evento programado no momento.</p>
+      <p class="text-sm mt-2">Fique de olho nas nossas redes sociais para novidades!</p>
+    </div>
+  ) : (
+    <div class="space-y-10">
+      {grupos.map(({ mesAno, items: groupItems }) => (
+        <div>
+          <h3 class="font-display font-bold text-[var(--color-velvet)] text-xl mb-4 capitalize flex items-center gap-3">
+            <span class="block w-8 h-0.5 bg-[var(--color-rouge)]" aria-hidden="true" />
+            {mesAno}
+          </h3>
+          <div class="divide-y divide-[var(--color-mist)]">
+            {groupItems.map((item) => (
+              <AgendaItem item={item} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

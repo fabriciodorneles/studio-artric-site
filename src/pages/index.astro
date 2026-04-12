@@ -1,0 +1,65 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import DestaquesHome from '../components/sections/DestaquesHome.astro';
+import SobrePreview from '../components/sections/SobrePreview.astro';
+import CTA from '../components/sections/CTA.astro';
+import AgendaList from '../components/agenda/AgendaList.astro';
+import SectionTitle from '../components/ui/SectionTitle.astro';
+import { getCollection } from 'astro:content';
+
+const agendaItems = await getCollection('agenda');
+const hoje = new Date();
+hoje.setHours(0, 0, 0, 0);
+const proximosEventos = agendaItems
+  .filter((item) => item.data.dataInicio >= hoje)
+  .sort((a, b) => a.data.dataInicio.getTime() - b.data.dataInicio.getTime())
+  .slice(0, 3);
+---
+
+<PageLayout
+  title="Início"
+  description="Studio ARTRIC — Artes Recreativas Integradas ao Circo. Aulas de acrobacia aérea, contorção, breaking e dança em Santa Teresa, Rio de Janeiro. Desde 2013."
+  darkHero={true}
+>
+  <Hero />
+
+  <DestaquesHome />
+
+  <SobrePreview />
+
+  {
+    proximosEventos.length > 0 && (
+      <section class="py-20 sm:py-28 bg-[var(--color-ivory)]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+            <SectionTitle
+              eyebrow="Próximos eventos"
+              title="Na agenda"
+              subtitle="Workshops, aulas abertas e espetáculos especiais."
+            />
+            <a
+              href="/agenda"
+              class="flex-shrink-0 inline-flex items-center gap-2 text-[var(--color-rouge)] font-bold text-sm hover:gap-3 transition-all duration-200 sm:mb-14"
+            >
+              Agenda completa
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+          <AgendaList items={proximosEventos} />
+        </div>
+      </section>
+    )
+  }
+
+  <CTA />
+</PageLayout>

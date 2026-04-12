@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = 'Studio ARTRIC — Artes Recreativas Integradas ao Circo. Aulas de acrobacia aérea, contorção, breaking e mais em Santa Teresa, Rio de Janeiro.',
+  ogImage = '/images/og-image.jpg',
+  canonicalURL,
+} = Astro.props;
+
+const siteUrl = 'https://studioartric.com.br';
+const canonical = canonicalURL ?? new URL(Astro.url.pathname, siteUrl).href;
+const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title} | Studio ARTRIC</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={`${title} | Studio ARTRIC`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageFull} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Studio ARTRIC" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Studio ARTRIC`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageFull} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <a
+      href="#conteudo-principal"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[var(--color-gold)] focus:text-[var(--color-velvet)] focus:px-4 focus:py-2 focus:rounded focus:font-bold"
+    >
+      Pular para o conteúdo principal
+    </a>
+    <slot />
+  </body>
+</html>
