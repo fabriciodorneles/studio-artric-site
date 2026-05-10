@@ -4,11 +4,11 @@ descricao: Desenvolva flexibilidade profunda e expressividade corporal com técn
 categoria: acrobacia
 nivel: todos os níveis
 duracao: "1h30"
-diasSemana: ["Segunda", "Quarta", "Sexta"]
-horario: "08h00 – 09h30"
+diasSemana: ["Terça", "Quinta"]
+horario: "18:30 – 20:00"
 professor: Patricia de Souza
+imagemUrl: /images/filipeta-contorcao.jpg
 vagas: 12
-imagemUrl: /images/alongamento.jpg
 destaque: true
 ativo: true
 ordem: 2

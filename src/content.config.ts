@@ -18,6 +18,12 @@ const cursos = defineCollection({
     destaque: z.boolean().default(false),
     ativo: z.boolean().default(true),
     ordem: z.number().default(99),
+    turmas: z.array(z.object({
+      diasSemana: z.array(z.string()),
+      horario: z.string(),
+      publico: z.string().optional(),
+      professor: z.string().optional(),
+    })).optional(),
   }),
 });
 

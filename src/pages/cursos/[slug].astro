@@ -26,7 +26,10 @@ const {
   vagas,
   preco,
   destaque,
+  turmas,
 } = curso.data;
+
+const hasTurmas = turmas && turmas.length > 0;
 ---
 
 <PageLayout
@@ -63,6 +66,42 @@ const {
     </div>
   </section>
 
+  <!-- Turmas (quando há múltiplos horários) -->
+  {hasTurmas && (
+    <section class="bg-[var(--color-velvet-light)] py-8 sm:py-10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <h2 class="font-display font-bold text-[var(--color-gold)] text-xl mb-5 flex items-center gap-3">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+          </svg>
+          Turmas e Horários
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left border-b border-white/10">
+                <th class="pb-3 pr-6 font-semibold text-white/60 uppercase tracking-wide text-xs">Dias</th>
+                <th class="pb-3 pr-6 font-semibold text-white/60 uppercase tracking-wide text-xs">Horário</th>
+                <th class="pb-3 pr-6 font-semibold text-white/60 uppercase tracking-wide text-xs">Turma</th>
+                <th class="pb-3 font-semibold text-white/60 uppercase tracking-wide text-xs">Professor(a)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {turmas!.map((turma) => (
+                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                  <td class="py-3 pr-6 text-white font-medium">{turma.diasSemana.join(' e ')}</td>
+                  <td class="py-3 pr-6 text-[var(--color-gold)] font-semibold">{turma.horario}</td>
+                  <td class="py-3 pr-6 text-white/70">{turma.publico ?? '—'}</td>
+                  <td class="py-3 text-white/70">{turma.professor ?? professor ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Conteúdo -->
   <section class="py-12 sm:py-20 bg-[var(--color-ivory)]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
@@ -85,51 +124,47 @@ const {
               Detalhes do curso
             </h2>
             <dl class="space-y-4">
+              {!hasTurmas && (
+                <>
+                  <div>
+                    <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Dias</dt>
+                    <dd class="text-[var(--color-charcoal)] font-medium">{diasSemana.join(' e ')}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Horário</dt>
+                    <dd class="text-[var(--color-charcoal)] font-medium">{horario}</dd>
+                  </div>
+                </>
+              )}
+              {hasTurmas && (
+                <div>
+                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Horários</dt>
+                  <dd class="text-[var(--color-charcoal)] font-medium">{turmas!.length} turmas — ver tabela acima</dd>
+                </div>
+              )}
               <div>
-                <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                  Dias
-                </dt>
-                <dd class="text-[var(--color-charcoal)] font-medium">{diasSemana.join(' e ')}</dd>
-              </div>
-              <div>
-                <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                  Horário
-                </dt>
-                <dd class="text-[var(--color-charcoal)] font-medium">{horario}</dd>
-              </div>
-              <div>
-                <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                  Duração
-                </dt>
+                <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Duração</dt>
                 <dd class="text-[var(--color-charcoal)] font-medium">{duracao}</dd>
               </div>
               <div>
-                <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                  Nível
-                </dt>
+                <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Nível</dt>
                 <dd class="capitalize text-[var(--color-charcoal)] font-medium">{nivel}</dd>
               </div>
-              {professor && (
+              {!hasTurmas && professor && (
                 <div>
-                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                    Professor(a)
-                  </dt>
+                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Professor(a)</dt>
                   <dd class="text-[var(--color-charcoal)] font-medium">{professor}</dd>
                 </div>
               )}
               {vagas && (
                 <div>
-                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                    Vagas
-                  </dt>
+                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Vagas</dt>
                   <dd class="text-[var(--color-charcoal)] font-medium">{vagas} alunos por turma</dd>
                 </div>
               )}
               {preco && (
                 <div class="pt-4 border-t border-[var(--color-mist)]">
-                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">
-                    Mensalidade
-                  </dt>
+                  <dt class="text-xs font-bold uppercase tracking-wide text-[var(--color-charcoal-light)] mb-1">Mensalidade</dt>
                   <dd class="text-[var(--color-velvet)] font-display font-bold text-2xl">{preco}</dd>
                 </div>
               )}
@@ -149,7 +184,7 @@ const {
 
   <CTA
     titulo="Pronto para começar?"
-    subtitulo="Entre em contato e garanta sua vaga neste curso."
+    subtitulo="Entre em contato e garanta sua vaga. A primeira aula é experimental e gratuita."
     ctaTexto="Fale Conosco"
     ctaHref="/contato"
     ctaSecundarioTexto="Ver outros cursos"

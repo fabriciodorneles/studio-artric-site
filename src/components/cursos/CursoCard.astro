@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { curso } = Astro.props;
-const { titulo, descricao, categoria, nivel, diasSemana, horario, professor, preco, destaque, imagemUrl } =
+const { titulo, descricao, categoria, nivel, diasSemana, horario, professor, preco, destaque, imagemUrl, turmas } =
   curso.data;
 
 const categoriaGradient: Record<string, string> = {
@@ -19,6 +19,12 @@ const categoriaGradient: Record<string, string> = {
 };
 
 const gradient = categoriaGradient[categoria] ?? 'from-[var(--color-velvet)] to-gray-800';
+
+const hasTurmas = turmas && turmas.length > 0;
+const diasDisplay = hasTurmas
+  ? [...new Set(turmas.flatMap((t) => t.diasSemana))].join(' / ')
+  : diasSemana.join(' e ');
+const horarioDisplay = hasTurmas ? `${turmas.length} turmas disponíveis` : horario;
 ---
 
 <article
@@ -67,16 +73,16 @@ const gradient = categoriaGradient[categoria] ?? 'from-[var(--color-velvet)] to-
           <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
         </svg>
         <dt class="sr-only">Dias</dt>
-        <dd>{diasSemana.join(' e ')}</dd>
+        <dd>{diasDisplay}</dd>
       </div>
       <div class="flex items-center gap-2 text-[var(--color-charcoal-light)]">
         <svg class="w-4 h-4 flex-shrink-0 text-[var(--color-rouge)]/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
         </svg>
         <dt class="sr-only">Horário</dt>
-        <dd>{horario}</dd>
+        <dd class:list={[hasTurmas && 'font-semibold text-[var(--color-teal)]']}>{horarioDisplay}</dd>
       </div>
-      {professor && (
+      {!hasTurmas && professor && (
         <div class="flex items-center gap-2 text-[var(--color-charcoal-light)]">
           <svg class="w-4 h-4 flex-shrink-0 text-[var(--color-rouge)]/60" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
@@ -99,7 +105,7 @@ const gradient = categoriaGradient[categoria] ?? 'from-[var(--color-velvet)] to-
         class="text-sm font-bold text-[var(--color-rouge)] hover:text-[var(--color-rouge-light)] flex items-center gap-1 transition-all duration-200 group-hover:gap-2"
         aria-label={`Ver detalhes do curso ${titulo}`}
       >
-        Saiba mais
+        {hasTurmas ? 'Ver turmas' : 'Saiba mais'}
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>

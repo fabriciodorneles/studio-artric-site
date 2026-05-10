@@ -1,22 +1,43 @@
 ---
 titulo: Acrobacia Aérea
-descricao: Voe nas alturas com técnica, segurança e expressão artística. Aulas de tecido acrobático, lira e corda que desenvolvem força, flexibilidade e confiança corporal.
+descricao: Voe nas alturas com técnica, segurança e expressão artística. Tecido acrobático, lira e corda — múltiplas turmas com Pati Sousa (Seg/Qua) e Danilo Gomes (Ter/Qui).
 categoria: aéreo
 nivel: todos os níveis
 duracao: "1h30"
-diasSemana: ["Terça", "Quinta"]
-horario: "19h00 – 20h30"
-professor: Danilo Gomes
+diasSemana: ["Segunda", "Terça", "Quarta", "Quinta"]
+horario: "Múltiplos horários"
+professor: "Patricia de Souza e Danilo Gomes"
+imagemUrl: /images/filipeta-aerea.jpg
 vagas: 10
-imagemUrl: /images/aerea-1.jpg
 destaque: true
 ativo: true
 ordem: 1
+turmas:
+  - diasSemana: ["Segunda", "Quarta"]
+    horario: "08:30 – 10:00"
+    publico: "Adultos"
+    professor: "Patricia de Souza"
+  - diasSemana: ["Segunda", "Quarta"]
+    horario: "16:30 – 17:30"
+    publico: "Infantil / Juvenil (a partir de 7 anos)"
+    professor: "Patricia de Souza"
+  - diasSemana: ["Segunda", "Quarta"]
+    horario: "17:30 – 19:00"
+    publico: "Turma Mista"
+    professor: "Patricia de Souza"
+  - diasSemana: ["Segunda", "Quarta"]
+    horario: "19:00 – 20:30"
+    publico: "Adultos"
+    professor: "Patricia de Souza"
+  - diasSemana: ["Terça", "Quinta"]
+    horario: "08:30 – 10:00"
+    publico: "Adultos"
+    professor: "Danilo Gomes"
 ---
 
-A acrobacia aérea é a arte de criar movimento e expressão suspensos no ar — usando aparelhos como tecido, lira e corda. No Studio ARTRIC, ela é uma das modalidades mais tradicionais do espaço, praticada desde os primeiros anos do estúdio.
+A acrobacia aérea é a arte de criar movimento e expressão suspensos no ar — usando aparelhos como tecido, lira e corda. No Studio ARTRIC, ela é uma das modalidades mais tradicionais do espaço, praticada desde os primeiros anos.
 
-As aulas são pensadas para todos os corpos e todos os níveis: do iniciante que nunca subiu em um aparelho ao praticante que quer aprimorar habilidades e buscar novos desafios. O foco está na progressão segura, na consciência corporal e na expressividade — porque voar bonito e voar com segurança não são opostos.
+As aulas são para todos os corpos e todos os níveis: do iniciante que nunca subiu em um aparelho ao praticante que quer aprimorar habilidades e buscar novos desafios. O foco está na progressão segura, na consciência corporal e na expressividade.
 
 ## O que você vai aprender
 
@@ -28,8 +49,10 @@ As aulas são pensadas para todos os corpos e todos os níveis: do iniciante que
 
 ## Para quem é
 
-Para crianças, jovens e adultos que queiram experimentar ou aprofundar o trabalho aéreo. Não é necessária experiência prévia para entrar na turma de iniciantes — a técnica se constrói junto, passo a passo.
+Há turmas para crianças (a partir de 7 anos), jovens e adultos. Não é necessária experiência prévia para entrar na turma de iniciantes — a técnica se constrói junto, passo a passo.
 
-## Sobre o Professor Danilo Gomes
+## Professores
 
-Ator, artista de circo e educador do movimento, formado em artes cênicas e circo pelo PROFAC (RJ). Com passagem por diversas escolas de circo do Rio de Janeiro, Danilo atua há mais de 4 anos no Studio ARTRIC, guiando alunos no aprendizado do corpo, do gesto e da cena.
+**Patricia de Souza** conduz as turmas de Segundas e Quartas. Fundadora do Studio ARTRIC, formada pela Escola Nacional de Circo em 2010, com mais de uma década de experiência como performer e educadora.
+
+**Danilo Gomes** conduz as turmas de Terças e Quintas. Ator, artista de circo e educador do movimento, formado pelo PROFAC (RJ), com mais de 4 anos no Studio ARTRIC.
