@@ -6,7 +6,7 @@ nivel: todos os níveis
 duracao: "1h30"
 diasSemana: ["Segunda", "Terça", "Quarta", "Quinta"]
 horario: "Múltiplos horários"
-professor: "Patricia de Souza e Danilo Gomes"
+professor: "Pati Sousa e Danilo Gomes"
 imagemUrl: /images/filipeta-aerea.jpg
 vagas: 10
 destaque: true
@@ -16,26 +16,26 @@ turmas:
   - diasSemana: ["Segunda", "Quarta"]
     horario: "08:30 – 10:00"
     publico: "Adultos"
-    professor: "Patricia de Souza"
+    professor: "Pati Sousa"
   - diasSemana: ["Segunda", "Quarta"]
     horario: "16:30 – 17:30"
     publico: "Infantil / Juvenil (a partir de 7 anos)"
-    professor: "Patricia de Souza"
+    professor: "Pati Sousa"
   - diasSemana: ["Segunda", "Quarta"]
     horario: "17:30 – 19:00"
     publico: "Turma Mista"
-    professor: "Patricia de Souza"
+    professor: "Pati Sousa"
   - diasSemana: ["Segunda", "Quarta"]
     horario: "19:00 – 20:30"
     publico: "Adultos"
-    professor: "Patricia de Souza"
+    professor: "Pati Sousa"
   - diasSemana: ["Terça", "Quinta"]
     horario: "08:30 – 10:00"
     publico: "Adultos"
     professor: "Danilo Gomes"
 ---
 
-A acrobacia aérea é a arte de criar movimento e expressão suspensos no ar — usando aparelhos como tecido, lira e corda. No Studio ARTRIC, ela é uma das modalidades mais tradicionais do espaço, praticada desde os primeiros anos.
+A acrobacia aérea é a arte de criar movimento e expressão suspensos no ar — usando aparelhos como tecido, lira e corda. No STUDIO ARTRIC, ela é uma das modalidades mais tradicionais do espaço, praticada desde os primeiros anos.
 
 As aulas são para todos os corpos e todos os níveis: do iniciante que nunca subiu em um aparelho ao praticante que quer aprimorar habilidades e buscar novos desafios. O foco está na progressão segura, na consciência corporal e na expressividade.
 
@@ -53,6 +53,6 @@ Há turmas para crianças (a partir de 7 anos), jovens e adultos. Não é necess
 
 ## Professores
 
-**Patricia de Souza** conduz as turmas de Segundas e Quartas. Fundadora do Studio ARTRIC, formada pela Escola Nacional de Circo em 2010, com mais de uma década de experiência como performer e educadora.
+**Pati Sousa** conduz as turmas de Segundas e Quartas. Fundadora do STUDIO ARTRIC, formada pela Escola Nacional de Circo em 2010, com mais de uma década de experiência como performer e educadora.
 
-**Danilo Gomes** conduz as turmas de Terças e Quintas. Ator, artista de circo e educador do movimento, formado pelo PROFAC (RJ), com mais de 4 anos no Studio ARTRIC.
+**Danilo Gomes** conduz as turmas de Terças e Quintas. Ator, artista de circo e educador do movimento, formado pelo PROFAC (RJ), com mais de 4 anos no STUDIO ARTRIC.

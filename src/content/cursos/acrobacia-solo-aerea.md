@@ -6,7 +6,7 @@ nivel: iniciante
 duracao: "1h"
 diasSemana: ["Sexta"]
 horario: "09:30 – 10:30"
-professor: Patricia de Souza
+professor: Pati Sousa
 imagemUrl: /images/filipeta-aerea-solo-infantil.jpg
 vagas: 10
 destaque: false
@@ -34,4 +34,4 @@ Para a turma infantil — crianças que querem experimentar o circo de verdade, 
 
 ## Sobre a Professora
 
-Patricia de Souza é fundadora do Studio ARTRIC, formada pela Escola Nacional de Circo em 2010. Com mais de uma década de experiência com crianças e artes circenses, ela cria um ambiente seguro, lúdico e transformador.
+Pati Sousa é fundadora do STUDIO ARTRIC, formada pela Escola Nacional de Circo em 2010. Com mais de uma década de experiência com crianças e artes circenses, ela cria um ambiente seguro, lúdico e transformador.

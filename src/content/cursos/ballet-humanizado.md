@@ -7,14 +7,14 @@ duracao: "45min"
 diasSemana: ["Sexta"]
 horario: "17:00 – 17:45"
 professor: Bibi Araújo
-imagemUrl: /images/criancas-aula.jpg
+imagemUrl: /images/filipeta-ballet-criancas.jpg
 vagas: 12
 destaque: true
 ativo: true
 ordem: 4
 ---
 
-Em 2025, o Studio ARTRIC ampliou seu repertório com aulas de ballet para crianças — uma proposta que une a base técnica do ballet clássico ao toque sensível e humano de Bibi Araújo.
+Em 2025, o STUDIO ARTRIC ampliou seu repertório com aulas de ballet para crianças — uma proposta que une a base técnica do ballet clássico ao toque sensível e humano de Bibi Araújo.
 
 As aulas são um espaço de descoberta, brincadeira e expressão artística. A técnica existe, sim — mas o foco está no corpo real de cada criança, na expressão individual e no prazer de se mover. Nada de cobranças sobre forma ou padrões excludentes.
 

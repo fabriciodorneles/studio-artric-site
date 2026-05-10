@@ -4,7 +4,7 @@ descricao: Um sábado especial de breaking com o Lúcio Pedra! Para crianças de
 tipo: workshop
 dataInicio: 2025-05-24
 horario: "09h00 - 11h00"
-local: Studio ARTRIC — Rua Almirante Alexandrino, 501
+local: STUDIO ARTRIC — Rua Almirante Alexandrino, 501
 vagas: 15
 destaque: false
 ---

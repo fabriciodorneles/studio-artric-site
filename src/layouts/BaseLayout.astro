@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title,
-  description = 'Studio ARTRIC — Artes Recreativas Integradas ao Circo. Aulas de acrobacia aérea, contorção, breaking e mais em Santa Teresa, Rio de Janeiro.',
+  description = 'STUDIO ARTRIC — Artes Recreativas Integradas ao Circo. Aulas de acrobacia aérea, contorção, breaking e mais em Santa Teresa, Rio de Janeiro.',
   ogImage = '/images/og-image.jpg',
   canonicalURL,
 } = Astro.props;
@@ -27,22 +27,22 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title} | Studio ARTRIC</title>
+    <title>{title} | STUDIO ARTRIC</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={`${title} | Studio ARTRIC`} />
+    <meta property="og:title" content={`${title} | STUDIO ARTRIC`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageFull} />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Studio ARTRIC" />
+    <meta property="og:site_name" content="STUDIO ARTRIC" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | Studio ARTRIC`} />
+    <meta name="twitter:title" content={`${title} | STUDIO ARTRIC`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageFull} />
 

@@ -14,7 +14,7 @@ ativo: true
 ordem: 5
 ---
 
-O Ballet Adulto no Studio ARTRIC é uma proposta para quem sempre quis dançar ballet — ou para quem já dançou e quer encontrar uma nova forma de se relacionar com essa linguagem.
+O Ballet Adulto no STUDIO ARTRIC é uma proposta para quem sempre quis dançar ballet — ou para quem já dançou e quer encontrar uma nova forma de se relacionar com essa linguagem.
 
 Com Bibi Araújo, as aulas combinam a solidez da técnica clássica com uma escuta sensível do corpo e uma abordagem decolonial da dança: sem padrões excludentes, sem julgamentos sobre o corpo, com espaço para todos os corpos e todas as histórias.
 

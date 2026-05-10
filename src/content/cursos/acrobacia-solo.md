@@ -1,12 +1,12 @@
 ---
 titulo: Acrobacia de Solo
-descricao: Acrobacia no chão para crianças — equilíbrio, rolamentos, pirâmides e movimento lúdico com segurança. Duas turmas na Sexta com a professora Patricia de Souza.
+descricao: Acrobacia no chão para crianças — equilíbrio, rolamentos, pirâmides e movimento lúdico com segurança. Duas turmas na Sexta com a professora Pati Sousa.
 categoria: acrobacia
 nivel: iniciante
 duracao: "1h"
 diasSemana: ["Sexta"]
 horario: "16:00 – 17:00 e 18:00 – 19:00"
-professor: Patricia de Souza
+professor: Pati Sousa
 imagemUrl: /images/filipeta-acrobacia-solo.jpg
 vagas: 10
 destaque: false
@@ -16,16 +16,16 @@ turmas:
   - diasSemana: ["Sexta"]
     horario: "16:00 – 17:00"
     publico: "Crianças"
-    professor: "Patricia de Souza"
+    professor: "Pati Sousa"
   - diasSemana: ["Sexta"]
     horario: "18:00 – 19:00"
     publico: "Crianças"
-    professor: "Patricia de Souza"
+    professor: "Pati Sousa"
 ---
 
 A acrobacia de solo é o trabalho acrobático feito no chão — sem aparelhos aéreos, com foco na consciência corporal, no equilíbrio, na força e na brincadeira. É uma modalidade fundamental para crianças, que desenvolve coordenação, confiança e uma relação saudável com o próprio corpo.
 
-No Studio ARTRIC, as aulas são conduzidas por Patricia de Souza com uma abordagem lúdica e segura, que respeita o tempo e as possibilidades de cada criança.
+No STUDIO ARTRIC, as aulas são conduzidas por Pati Sousa com uma abordagem lúdica e segura, que respeita o tempo e as possibilidades de cada criança.
 
 ## O que as crianças vão aprender
 
@@ -41,4 +41,4 @@ Para crianças. As turmas têm limite de 10 alunos por turma para garantir aten�
 
 ## Sobre a Professora
 
-Patricia de Souza é fundadora do Studio ARTRIC e formada pela Escola Nacional de Circo (2010). Conduz as aulas de acrobacia de solo com o mesmo rigor e carinho de toda a sua trajetória como educadora e performer.
+Pati Sousa é fundadora do STUDIO ARTRIC e formada pela Escola Nacional de Circo (2010). Conduz as aulas de acrobacia de solo com o mesmo rigor e carinho de toda a sua trajetória como educadora e performer.
